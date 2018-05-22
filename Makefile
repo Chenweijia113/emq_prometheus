@@ -1,5 +1,5 @@
-PROJECT = emq_plugin_template
-PROJECT_DESCRIPTION = EMQ Plugin Template
+PROJECT = emq_prometheus
+PROJECT_DESCRIPTION = EMQ Plugin Prometh
 PROJECT_VERSION = 2.3.9
 
 BUILD_DEPS = emqttd cuttlefish
@@ -18,4 +18,4 @@ include erlang.mk
 app:: rebar.config
 
 app.config::
-	./deps/cuttlefish/cuttlefish -l info -e etc/ -c etc/emq_plugin_template.conf -i priv/emq_plugin_template.schema -d data
+	./deps/cuttlefish/cuttlefish -l info -e etc/ -c etc/emq_prometheus.conf -i priv/emq_prometheus.schema -d data
