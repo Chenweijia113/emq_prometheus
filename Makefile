@@ -1,5 +1,5 @@
 PROJECT = emq_prometheus
-PROJECT_DESCRIPTION = EMQ Plugin Prometh
+PROJECT_DESCRIPTION = EMQ Plugin Prometheus
 PROJECT_VERSION = 2.3.9
 
 BUILD_DEPS = emqttd cuttlefish
