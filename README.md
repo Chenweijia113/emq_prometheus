@@ -1,8 +1,8 @@
 
-emq-plugin-template
+emq-prometheus
 ===================
 
-This is a template plugin for the EMQ broker.
+This is a prometheus monitoring plugin for the EMQ broker.
 
 Plugin Config
 -------------
