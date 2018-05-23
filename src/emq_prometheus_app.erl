@@ -11,7 +11,7 @@
 
 start(_Type, _Args) ->
     {ok, Sup} = emq_prometheus_sup:start_link(),
-    ok = emqttd_access_control:register_mod(auth, emq_auth_prometheus, [Listeners], 9999),
+    ok = emqttd_access_control:register_mod(auth, emq_auth_prometheus, [], 9999),
     emq_prometheus_cli:load(),
     {ok, Sup}.
 
@@ -20,10 +20,10 @@ stop(_State) ->
     emqttd_access_control:unregister_mod(auth, emq_auth_prometheus).
 
 %% start http listener
-start_listener({Proto, Port, Options}) when Proto == http orelse Proto == https ->
-    mochiweb:start_http(listener_name(Proto), Port, Options, emq_prometheus:http_handler()).
+% start_listener({Proto, Port, Options}) when Proto == http orelse Proto == https ->
+%     mochiweb:start_http(listener_name(Proto), Port, Options, emq_prometheus:http_handler()).
 
-stop_listener({Proto, Port, _}) ->
-    mochiweb:stop_http(listener_name(Proto), Port).
+% stop_listener({Proto, Port, _}) ->
+%     mochiweb:stop_http(listener_name(Proto), Port).
 
-listener_name(Proto) -> list_to_atom("prometh:" ++ atom_to_list(Proto)).
+% listener_name(Proto) -> list_to_atom("prometh:" ++ atom_to_list(Proto)).
