@@ -6,8 +6,8 @@
 
 %% Called when the plugin application start
 load() ->
-	io.format("start emq_prometheue plugin~n", []).
+	io:format("start emq_prometheue plugin~n", []).
 
 %% Called when the plugin application stop
 unload() ->
-	io.format("stop emq_prometheue plugin~n", []).
+	io:format("stop emq_prometheue plugin~n", []).
