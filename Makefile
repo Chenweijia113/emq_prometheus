@@ -2,7 +2,7 @@ PROJECT = emq_prometheus
 PROJECT_DESCRIPTION = Prometheus.io exporter as a EMQ Plugin
 PROJECT_VERSION = 2.3.9
 
-BUILD_DEPS = emqttd cuttlefish prometheus.erl
+BUILD_DEPS = emqttd cuttlefish prometheus
 dep_emqttd = git https://github.com/emqtt/emqttd master
 dep_cuttlefish = git https://github.com/emqtt/cuttlefish
 dep_prometheus = git https://github.com/deadtrickster/prometheus.erl master	
