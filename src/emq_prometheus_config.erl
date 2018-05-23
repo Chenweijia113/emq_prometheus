@@ -1,1 +1,0 @@
--module(emq_prometheus_config).
