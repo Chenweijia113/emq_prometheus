@@ -1,8 +1,0 @@
-{applications, emq_prometheus,
-
-  [kernel,
-   stdlib,
-   prometheus,
-   elli_prometheus,
-   prometheus_process_collector]
-}.
