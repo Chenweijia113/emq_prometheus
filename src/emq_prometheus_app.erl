@@ -11,13 +11,11 @@
 
 start(_Type, _Args) ->
     {ok, Sup} = emq_prometheus_sup:start_link(),
-    ok = emqttd_access_control:register_mod(auth, emq_auth_prometheus, [], 9999),
     emq_prometheus_cli:load(),
     {ok, Sup}.
 
 stop(_State) ->
-	emq_prometheus_cli:unload(),
-    emqttd_access_control:unregister_mod(auth, emq_auth_prometheus).
+	emq_prometheus_cli:unload().
 
 %% start http listener
 % start_listener({Proto, Port, Options}) when Proto == http orelse Proto == https ->
