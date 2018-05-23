@@ -29,7 +29,7 @@ is_from_prometheus(_Origin, []) ->
 is_from_prometheus(Origin, [{_, Port, _}|Listeners]) ->
     %%TODO: workaround first...
     case string:rstr(Origin, integer_to_list(Port)) of
-        0  -> is_from_dashboard(Origin, Listeners);
+        0  -> is_from_prometheus(Origin, Listeners);
         _I -> true
     end.
 
