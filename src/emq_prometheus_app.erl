@@ -11,17 +11,13 @@
 
 start(_Type, _Args) ->
     {ok, Sup} = emq_prometheus_sup:start_link(),
-    {ok, Listeners} = application:get_env(?APP, listeners),
     ok = emqttd_access_control:register_mod(auth, emq_auth_prometheus, [Listeners], 9999),
-    lists:foreach(fun(Listener) -> start_listener(Listener) end, Listeners),
     emq_prometheus_cli:load(),
     {ok, Sup}.
 
 stop(_State) ->
 	emq_prometheus_cli:unload(),
-    emqttd_access_control:unregister_mod(auth, emq_auth_prometheus),
-    {ok, Listeners} = application:get_env(?APP, listeners),
-    lists:foreach(fun(Listener) -> stop_listener(Listener) end, Listeners).
+    emqttd_access_control:unregister_mod(auth, emq_auth_prometheus).
 
 %% start http listener
 start_listener({Proto, Port, Options}) when Proto == http orelse Proto == https ->
